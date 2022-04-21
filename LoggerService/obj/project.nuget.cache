@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "EZQN+UC8ZnMYiPJG37ScDvUrTcv6RpuhWtwu2957UpyGe3fiKiECW0qE2Hd2PlTHFmsO1tzlHadnMZkT6fWFyQ==",
+  "success": true,
+  "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\LoggerService\\LoggerService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\nlog\\5.0.0-rc2\\nlog.5.0.0-rc2.nupkg.sha512"
+  ],
+  "logs": []
+}

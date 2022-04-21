@@ -1,0 +1,12 @@
+C:\Net Core\Test Projects\CrudOperations\LoggerService\bin\Debug\net6.0\LoggerService.deps.json
+C:\Net Core\Test Projects\CrudOperations\LoggerService\bin\Debug\net6.0\LoggerService.dll
+C:\Net Core\Test Projects\CrudOperations\LoggerService\bin\Debug\net6.0\ref\LoggerService.dll
+C:\Net Core\Test Projects\CrudOperations\LoggerService\bin\Debug\net6.0\LoggerService.pdb
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.csproj.AssemblyReference.cache
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.AssemblyInfoInputs.cache
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.AssemblyInfo.cs
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.csproj.CoreCompileInputs.cache
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.dll
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\ref\LoggerService.dll
+C:\Net Core\Test Projects\CrudOperations\LoggerService\obj\Debug\net6.0\LoggerService.pdb

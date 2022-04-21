@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a0b26805-3518-49ae-acb7-5e98a573ba23": {
+      "ProjectGuid": "a0b26805-3518-49ae-acb7-5e98a573ba23",
+      "DisplayName": "CrudOperations",
+      "ColorIndex": 0
+    },
+    "fd6600da-71b1-469c-9cfb-a1172dc99d66": {
+      "ProjectGuid": "fd6600da-71b1-469c-9cfb-a1172dc99d66",
+      "DisplayName": "LoggerService",
+      "ColorIndex": 1
+    },
+    "57ba40a2-694c-4695-82bf-40287612978c": {
+      "ProjectGuid": "57ba40a2-694c-4695-82bf-40287612978c",
+      "DisplayName": "Domain",
+      "ColorIndex": 2
+    },
+    "f555e51d-e5bf-44b7-91a0-f0d6559fe759": {
+      "ProjectGuid": "f555e51d-e5bf-44b7-91a0-f0d6559fe759",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "026a278d-08da-4d9a-b876-cea00b832325": {
+      "ProjectGuid": "026a278d-08da-4d9a-b876-cea00b832325",
+      "DisplayName": "Contracts",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
