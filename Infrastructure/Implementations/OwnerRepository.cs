@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
@@ -15,6 +16,16 @@ namespace Infrastructure.Implementations
         public async Task<IEnumerable<Owner>> GetAllOwners(bool trackChanges)
         {
             return await FindAll(trackChanges).OrderBy(o => o.Name).ToListAsync();
+        }
+
+        public async Task<Owner> GetOwnerById(Guid ownerId, bool trackChanges)
+        {
+            return await FindByCondition(o => o.Id.Equals(ownerId), trackChanges).SingleOrDefaultAsync();
+        }
+
+        public void CreateOwner(Owner owner)
+        {
+          Create(owner);
         }
     }
 }

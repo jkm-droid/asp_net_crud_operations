@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Q9EpZC6BLOvlvHnTKcS2VqyDLoDTeT8xX5PQQ+VQH+ov96DZR29MkW4UGM0ySLicgs/dnm/PVUKDIooEjp7rfA==",
+  "dgSpecHash": "7Fs4bT2urmJdvvQUxrAB8EMgOX3xS1kT2Ye9jo7AAjaKFuhxlwP5GLiNSMQx6URfX4qRt/7NBZolVLpDJ3lIZA==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0-preview.3.22175.1\\microsoft.entityframeworkcore.7.0.0-preview.3.22175.1.nupkg.sha512",

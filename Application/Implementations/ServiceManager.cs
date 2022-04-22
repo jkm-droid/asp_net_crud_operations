@@ -1,5 +1,6 @@
 ﻿using System;
 using Application.Abstractions;
+using AutoMapper;
 using Infrastructure.Abstractions;
 using LoggerService.Abstractions;
 
@@ -7,14 +8,12 @@ namespace Application.Implementations
 {
     public sealed class ServiceManager : IServiceManager
     {
-        public readonly IRepositoryManager _repositoryWrapper;
-        private readonly ILoggerManager _loggerManager;
-        public Lazy<IOwnerService> _ownerService;
+       public Lazy<IOwnerService> _ownerService;
         public Lazy<IAccountService> _accountService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager)
+        public ServiceManager(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper)
         {
-            _ownerService = new Lazy<IOwnerService>(() => new OwnerService(repositoryManager, loggerManager));
+            _ownerService = new Lazy<IOwnerService>(() => new OwnerService(repositoryManager, loggerManager, mapper));
             _accountService = new Lazy<IAccountService>(()=>new AccountService(repositoryManager, loggerManager));
         }
 

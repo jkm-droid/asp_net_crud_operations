@@ -15,6 +15,7 @@ builder.Services.ConfigureRepositoryManager();
 //builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlService(builder.Configuration);
 builder.Services.AddMediatR(typeof(Application.Assembly.AssemblyReference).Assembly);
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllers().AddApplicationPart(typeof(Presentation.Assembly.AssemblyReference).Assembly);
 

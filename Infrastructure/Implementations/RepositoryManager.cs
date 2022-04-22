@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Infrastructure.Abstractions;
 
 namespace Infrastructure.Implementations
@@ -19,8 +20,8 @@ namespace Infrastructure.Implementations
         public IOwnerRepository Owner => _ownerRepository.Value;
 
         public IAccountRepository Account => _accountRepository.Value;
-
-        public void Save() => _repositoryContext.SaveChanges();
+      
+        public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
 
     }
 }

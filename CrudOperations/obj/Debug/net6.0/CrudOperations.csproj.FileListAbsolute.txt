@@ -7,6 +7,8 @@ C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\CrudOpe
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\CrudOperations.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\ref\CrudOperations.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\CrudOperations.pdb
+C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\AutoMapper.dll
+C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Humanizer.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\MediatR.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\MediatR.Contracts.dll
