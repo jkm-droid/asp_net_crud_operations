@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kZTt6NxLA7RiX7KV3Y63WMgJNivK2lHDjaKpVzUbeR0R/At5Q0O1gaENl2/tXiWOtTpaHp4X4dIuEB5MJ3ftlw==",
+  "dgSpecHash": "Q9EpZC6BLOvlvHnTKcS2VqyDLoDTeT8xX5PQQ+VQH+ov96DZR29MkW4UGM0ySLicgs/dnm/PVUKDIooEjp7rfA==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

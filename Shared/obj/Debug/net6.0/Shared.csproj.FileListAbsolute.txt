@@ -1,0 +1,12 @@
+C:\Net Core\Test Projects\CrudOperations\Shared\bin\Debug\net6.0\Shared.deps.json
+C:\Net Core\Test Projects\CrudOperations\Shared\bin\Debug\net6.0\Shared.dll
+C:\Net Core\Test Projects\CrudOperations\Shared\bin\Debug\net6.0\ref\Shared.dll
+C:\Net Core\Test Projects\CrudOperations\Shared\bin\Debug\net6.0\Shared.pdb
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.csproj.AssemblyReference.cache
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.AssemblyInfoInputs.cache
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.AssemblyInfo.cs
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.csproj.CoreCompileInputs.cache
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.dll
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\ref\Shared.dll
+C:\Net Core\Test Projects\CrudOperations\Shared\obj\Debug\net6.0\Shared.pdb

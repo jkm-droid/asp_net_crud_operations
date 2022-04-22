@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "4sjMtiIR6TlQ8eLQFtqXL96LkDXVLC76CiRIQUhCXyH9EezNy0/O5mwXUsltnTRhP82NmcdZ2f/c245Z4KdjZA==",
+  "dgSpecHash": "G0Qwi0qBT/BEbmlrzAltKxBXY3vxlgc4fbhFiMwhX/EkOSFxbySYwZTt20L/XJyGYIP8F0b9LkKBEk56m9lkYg==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\CrudOperations\\CrudOperations.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jkmdroid\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

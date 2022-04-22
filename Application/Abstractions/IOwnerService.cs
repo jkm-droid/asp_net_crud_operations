@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Domain.Entities;
+using Shared.DataTransferObjects;
 
 namespace Application.Abstractions
 {
     public interface IOwnerService
     {
-        Task<IEnumerable<Owner>> GetAllOwnersAsync(bool trackChanges);
+        Task<IEnumerable<OwnerDto>> GetAllOwners(bool trackChanges);
     }
 }

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "P+04JEZ7+uE/AL846sWVrKr3wfyU4M8vcvbPyE7pJN8bDpAfMfOjvhCkEWZnIzNKR47QSTt+H0HS3fo5Sm+bZA==",
+  "dgSpecHash": "x6EnGVvvM5upHSkCayHpBvHkS8TXbafx4pq7HzR6gHo1bce80UXWKqe9TNxhaGDK1O46YRQRt2E94cTtwTm4gg==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

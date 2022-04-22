@@ -16,7 +16,7 @@ namespace Infrastructure
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
         }
         
-        public DbSet<Owner> Owners { get; set; }
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Owner>? Owners { get; set; }
+        public DbSet<Account>? Accounts { get; set; }
     }
 }
