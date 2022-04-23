@@ -23,5 +23,18 @@ namespace Infrastructure.Implementations
         {
             return await FindByCondition(a => a.OwnerId.Equals(ownerId), trackChanges).OrderBy(a => a.Name).ToListAsync();
         }
+
+        public async Task<Account> GetAccountById(Guid ownerId, Guid accountId, bool trackChanges)
+        {
+            return await FindByCondition(a => a.OwnerId.Equals(ownerId) && a.Id.Equals(accountId), trackChanges)
+                .SingleOrDefaultAsync();
+        }
+        public void CreateAccount(Guid ownerId, Account account)
+        {
+            account.OwnerId = ownerId;
+            account.CreatedAt = DateTime.Now;
+            Create(account);
+        }
+
     }
 }

@@ -15,6 +15,8 @@ namespace CrudOperations.MappingProfile
                 .ForCtorParam("CreatedAt", options => options.MapFrom(d => d.CreatedAt.ToString("MM/dd/yyyy")));
 
             CreateMap<OwnerCreationDto, Owner>();
+
+            CreateMap<AccountCreationDto, Account>();
         }
     }
 }

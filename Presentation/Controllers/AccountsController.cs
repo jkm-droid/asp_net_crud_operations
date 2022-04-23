@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Application.Abstractions;
+using Application.Features.Accounts.Commands;
 using Application.Features.Accounts.Queries;
 using Application.Features.Owners.Commands;
 using MediatR;
@@ -33,6 +34,22 @@ namespace Presentation.Controllers
             var ownerAccounts = await _mediator.Send(new GetOwnerAccountsQuery(ownerId, trackChanges: false));
 
             return Ok(ownerAccounts);
+        }
+
+        [HttpGet("{accountId:guid}", Name = "GetOwnerAccountAsync")]
+        public async Task<IActionResult> GetOwnerAccountAsync(Guid ownerId, Guid accountId)
+        {
+            var account = await _mediator.Send(new GetOwnerAccountByIdQuery(ownerId, accountId, trackChanges: false));
+
+            return Ok(account);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAccountAsync(Guid ownerId, [FromBody] AccountCreationDto accountCreationDto)
+        {
+            var account = await _mediator.Send(new CreateAccountCommand(ownerId, accountCreationDto));
+
+            return CreatedAtAction("GetOwnerAccount", new {accountId = account.Id}, account);
         }
     }
 }

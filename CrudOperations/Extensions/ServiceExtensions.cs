@@ -35,7 +35,7 @@ namespace CrudOperations.Extensions
         public static void ConfigureSqlService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<RepositoryContext>(opts =>
-                opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+                opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")),ServiceLifetime.Transient);
         }
 
         public static void ConfigurePostgreSqlService(this IServiceCollection services, IConfiguration configuration)
