@@ -1,4 +1,6 @@
 using CrudOperations.Extensions;
+using CrudOperations.Middlewares;
+using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -20,11 +22,11 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers().AddApplicationPart(typeof(Presentation.Assembly.AssemblyReference).Assembly);
 
 var app = builder.Build();
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionMiddlewareHandler(logger);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-    app.UseDeveloperExceptionPage();
-else
+if (app.Environment.IsProduction())
     app.UseHsts();
 
 app.UseHttpsRedirection();

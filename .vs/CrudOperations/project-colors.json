@@ -35,7 +35,12 @@
       "ProjectGuid": "1d777e75-c194-40ed-9d81-e811c5d0f4d0",
       "DisplayName": "Presentation",
       "ColorIndex": 5
+    },
+    "c3cb3998-730a-43fa-b8cb-7a48533d1509": {
+      "ProjectGuid": "c3cb3998-730a-43fa-b8cb-7a48533d1509",
+      "DisplayName": "Application",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 7
 }

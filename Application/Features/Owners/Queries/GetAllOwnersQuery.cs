@@ -35,18 +35,10 @@ namespace Application.Features.Owners.Queries
 
         public async Task<IEnumerable<OwnerDto>> Handle(GetAllOwnersQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
                 var owners = await _repository.Owner.GetAllOwners(request.TrackChanges);
                 var ownersDto = _mapper.Map<IEnumerable<OwnerDto>>(owners);
                 
                 return ownersDto;
-            }
-            catch (Exception e)
-            {
-                _loggerManager.LogError($"something occurred service method {e}");
-                throw;
-            }
-        }
+           }
     }
 }

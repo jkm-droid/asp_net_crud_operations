@@ -31,18 +31,11 @@ namespace Application.Features.Accounts.Queries
 
         public async Task<IEnumerable<AccountDto>> Handle(GetAllAccountsQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var accounts = await _repositoryManager.Account.GetAllAccounts(trackChanges: false);
-                var accountsDto = _mapper.Map<IEnumerable<AccountDto>>(accounts);
+            
+            var accounts = await _repositoryManager.Account.GetAllAccounts(trackChanges: false);
+            var accountsDto = _mapper.Map<IEnumerable<AccountDto>>(accounts);
 
-                return accountsDto;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            return accountsDto;
         }
     }
 }

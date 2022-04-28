@@ -6,5 +6,6 @@ namespace Domain.Exceptions
     {
         protected NotFoundException(string message) : base(message)
         { }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Exceptions;
 using Infrastructure.Abstractions;
 using MediatR;
 using Shared.DataTransferObjects;
@@ -34,6 +35,8 @@ namespace Application.Features.Owners.Queries
         public async Task<OwnerDto> Handle(GetOwnerByIdQuery request, CancellationToken cancellationToken)
         {
             var owner = await _repositoryManager.Owner.GetOwnerById(request.Id, request.TrackChanges);
+            if (owner is null)
+                throw new OwnerNotFoundException(request.Id);
 
             var ownerDto = _mapper.Map<OwnerDto>(owner);
 

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Exceptions;
 using Infrastructure.Abstractions;
 using LoggerService.Abstractions;
 using MediatR;
@@ -40,7 +41,7 @@ namespace Application.Features.Accounts.Queries
         {
             var owner = await _repositoryManager.Owner.GetOwnerById(request.OwnerId, trackChanges: false);
             if (owner is null)
-                _loggerManager.LogError($"owner with id {request.OwnerId} does not exist");
+                throw new OwnerNotFoundException(request.OwnerId);  
 
             var account =
                 await _repositoryManager.Account.GetAccountById(request.OwnerId, request.AccountId, request.TrackChanges);

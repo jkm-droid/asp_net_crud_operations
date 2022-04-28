@@ -61,12 +61,17 @@ namespace CrudOperations.Extensions
 
                 config.AddSerilog();
             });
-            services.AddScoped<ILoggerManager, LoggerManager>();
+            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         public static void ConfigureRepositoryManager(this IServiceCollection services)
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
+
+        public static void ConfigureRepositoryWrapper(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
         
         public static void ConfigureServiceManager(this IServiceCollection services)

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Exceptions;
 using Infrastructure.Abstractions;
 using MediatR;
 using Shared.DataTransferObjects;
@@ -35,6 +36,11 @@ namespace Application.Features.Accounts.Queries
 
         public async Task<IEnumerable<AccountDto>> Handle(GetOwnerAccountsQuery request, CancellationToken cancellationToken)
         {
+            //check if owner exists
+            var owner = await _repositoryManager.Owner.GetOwnerById(request.Id, trackChanges: false);
+            if (owner is null)
+                throw new OwnerNotFoundException(request.Id);
+            
             var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.Id, request.TrackChanges);
 
             var ownerAccountsDto = _mapper.Map<IEnumerable<AccountDto>>(ownerAccounts);
