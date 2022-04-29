@@ -1,10 +1,13 @@
-﻿namespace Shared.DataTransferObjects
+﻿using System.Collections.Generic;
+
+namespace Shared.DataTransferObjects
 {
     public record OwnerCreationDto
     (
         string Name,
         string Email, 
         string Address,
-        string Country
+        string Country,
+        IEnumerable<AccountCreationDto> Accounts//will enable creating an owner together with an account
     );
 }

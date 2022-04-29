@@ -27,5 +27,10 @@ namespace Infrastructure.Implementations
         {
           Create(owner);
         }
+        
+        public async Task<IEnumerable<Owner>> GetOwnersByIds(IEnumerable<Guid> ownerIds, bool trackChanges)
+        {
+            return await FindByCondition(o => ownerIds.Contains(o.Id), trackChanges).ToListAsync();
+        }
     }
 }
