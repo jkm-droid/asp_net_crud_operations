@@ -51,5 +51,25 @@ namespace Presentation.Controllers
 
             return CreatedAtAction("GetOwnerAccount", new {accountId = account.Id}, account);
         }
+        
+        [HttpDelete("{accountId:guid}")]
+        public async Task<IActionResult> DeleteAccountForOwner(Guid ownerId, Guid accountId)
+        {
+            await _mediator.Send(new DeleteAccountCommand(ownerId, accountId, trackChanges: false));
+
+            return NoContent();
+        }
+
+        [HttpPut("{accountId:guid}")]
+        public async Task<IActionResult> UpdateAccount([FromBody] AccountUpdateDto account, Guid ownerId, Guid accountId)
+        {
+            if (account is null)
+                return BadRequest("Account is null");
+            
+            await _mediator.Send(new UpdateAccountCommand(account, ownerId, accountId, ownerTrackChanges: false,
+                accountTrackChanges: true));
+
+            return NoContent();
+        }
     }
 }

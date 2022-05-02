@@ -52,7 +52,7 @@ namespace Presentation.Controllers
         {
             var owners = _mediator.Send(new GetAllOwnersByIdsQuery(ownerIds, trackChanges: false));
 
-            return Ok(ownerIds);
+            return Ok(owners);
         }
 
         [HttpPost("collection")]
@@ -62,6 +62,14 @@ namespace Presentation.Controllers
             var response = await _mediator.Send(new CreateOwnerCollectionCommand(ownerCollection));
 
             return CreatedAtRoute("GetOwnerCollection", new {response.ownerIds}, response.owners);
+        }
+
+        [HttpDelete("{ownerId:guid}")]
+        public async Task<IActionResult> DeleteOwner(Guid ownerId)
+        {
+            await _mediator.Send(new DeleteOwnerCommand(ownerId, trackChanges: false));
+
+            return NoContent();
         }
     }
 }

@@ -32,5 +32,10 @@ namespace Infrastructure.Implementations
         {
             return await FindByCondition(o => ownerIds.Contains(o.Id), trackChanges).ToListAsync();
         }
+
+        public void DeleteOwner(Owner owner)
+        {
+            Delete(owner);
+        }
     }
 }

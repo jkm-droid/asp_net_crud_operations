@@ -36,5 +36,9 @@ namespace Infrastructure.Implementations
             Create(account);
         }
 
+        public void DeleteAccount(Account account)
+        {
+            Delete(account);
+        }
     }
 }
