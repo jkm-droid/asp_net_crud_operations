@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Features.Owners.Commands;
 using Application.Features.Owners.Queries;
+using Domain.Exceptions;
 using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -31,8 +32,8 @@ namespace Presentation.Controllers
             return Ok(owners);
         }
 
-        [HttpGet("{id:guid}", Name = "GetOwnerByIdAsync")]
-        public async Task<IActionResult> GetOwnerByIdAsync(Guid id)
+        [HttpGet("{id:guid}", Name = "GetOwnerById")]
+        public async Task<IActionResult> GetOwnerById(Guid id)
         {
             var owner = await _mediator.Send(new GetOwnerByIdQuery(id, trackChanges: false));
 
@@ -58,10 +59,25 @@ namespace Presentation.Controllers
         [HttpPost("collection")]
         public async Task<IActionResult> CreateOwnerCollection([FromBody] IEnumerable<OwnerCreationDto> ownerCollection)
         {
-            _loggerManager.LogWarn("invoked");
+            if (ownerCollection is null)
+                throw new OwnerCollectionBadRequest();
+            
             var response = await _mediator.Send(new CreateOwnerCollectionCommand(ownerCollection));
 
             return CreatedAtRoute("GetOwnerCollection", new {response.ownerIds}, response.owners);
+        }
+
+        [HttpPut("{ownerId:guid}")]
+        public async Task<IActionResult> UpdateOwner([FromBody] OwnerUpdateDto ownerUpdateDto, Guid ownerId)
+        {
+            if (ownerUpdateDto is null)
+            {
+                return BadRequest("OwnerUpdateDto is null");
+            }
+
+            await _mediator.Send(new UpdateOwnerCommand(ownerId, ownerUpdateDto, trackChanges: true));
+
+            return NoContent();
         }
 
         [HttpDelete("{ownerId:guid}")]

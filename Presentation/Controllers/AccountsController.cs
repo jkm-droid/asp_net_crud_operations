@@ -4,6 +4,7 @@ using Application.Abstractions;
 using Application.Features.Accounts.Commands;
 using Application.Features.Accounts.Queries;
 using Application.Features.Owners.Commands;
+using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DataTransferObjects;
@@ -15,10 +16,12 @@ namespace Presentation.Controllers
     public class AccountsController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILoggerManager _loggerManager;
 
-        public AccountsController( IMediator mediator)
+        public AccountsController( IMediator mediator, ILoggerManager loggerManager)
         {
             _mediator = mediator;
+            _loggerManager = loggerManager;
         }
 
         public async Task<IActionResult> GetAllAccountsAsync()
@@ -63,6 +66,7 @@ namespace Presentation.Controllers
         [HttpPut("{accountId:guid}")]
         public async Task<IActionResult> UpdateAccount([FromBody] AccountUpdateDto account, Guid ownerId, Guid accountId)
         {
+            _loggerManager.LogWarn($"{account}");
             if (account is null)
                 return BadRequest("Account is null");
             

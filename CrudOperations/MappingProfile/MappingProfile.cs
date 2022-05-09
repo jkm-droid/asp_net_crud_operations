@@ -19,6 +19,8 @@ namespace CrudOperations.MappingProfile
             CreateMap<AccountCreationDto, Account>();
 
             CreateMap<AccountUpdateDto, Account>();
+
+            CreateMap<OwnerUpdateDto, Owner>();
         }
     }
 }
