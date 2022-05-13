@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using AutoMapper;
 using Domain.Exceptions;
 using Infrastructure.Abstractions;
@@ -39,9 +40,7 @@ namespace Application.Features.Accounts.Queries
 
         public async Task<AccountDto> Handle(GetOwnerAccountByIdQuery request, CancellationToken cancellationToken)
         {
-            var owner = await _repositoryManager.Owner.GetOwnerById(request.OwnerId, trackChanges: false);
-            if (owner is null)
-                throw new OwnerNotFoundException(request.OwnerId);  
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
 
             var account =
                 await _repositoryManager.Account.GetAccountById(request.OwnerId, request.AccountId, request.TrackChanges);

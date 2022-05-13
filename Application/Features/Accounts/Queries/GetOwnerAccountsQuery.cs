@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -13,12 +14,12 @@ namespace Application.Features.Accounts.Queries
 {
     public class GetOwnerAccountsQuery : IRequest<IEnumerable<AccountDto>>
     {
-        public Guid Id { get; set; }
+        public Guid OwnerId { get; set; }
         public bool TrackChanges { get; set; }
 
-        public GetOwnerAccountsQuery(Guid id, bool trackChanges)
+        public GetOwnerAccountsQuery(Guid ownerd, bool trackChanges)
         {
-            Id = id;
+            OwnerId = ownerd;
             TrackChanges = trackChanges;
         }
     }
@@ -37,11 +38,9 @@ namespace Application.Features.Accounts.Queries
         public async Task<IEnumerable<AccountDto>> Handle(GetOwnerAccountsQuery request, CancellationToken cancellationToken)
         {
             //check if owner exists
-            var owner = await _repositoryManager.Owner.GetOwnerById(request.Id, trackChanges: false);
-            if (owner is null)
-                throw new OwnerNotFoundException(request.Id);
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
             
-            var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.Id, request.TrackChanges);
+            var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.OwnerId, request.TrackChanges);
 
             var ownerAccountsDto = _mapper.Map<IEnumerable<AccountDto>>(ownerAccounts);
 

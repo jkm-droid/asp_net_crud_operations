@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -39,14 +40,10 @@ namespace Application.Features.Accounts.Queries
 
         public async Task<(AccountUpdateDto accountPatch, Account account)> Handle(GetAccountForPatchQuery request, CancellationToken cancellationToken)
         {
-            var owner = await _repositoryManager.Owner.GetOwnerById(request.OwnerId, request.OwnerTrackChanges);
-            if (owner is null)
-                throw new OwnerNotFoundException(request.OwnerId);
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
 
-            var accountEntity =
-                await _repositoryManager.Account.GetAccountById(request.OwnerId, request.AccountId, request.AccountTrackChanges);
-            if (accountEntity is null)
-                throw new AccountNotFoundException(request.AccountId);
+            var accountEntity =await GetAccountOwner.GetAccountAndCheckIfExists(_repositoryManager, request.OwnerId,
+                request.AccountId, request.AccountTrackChanges);
 
             var accountPatch = _mapper.Map<AccountUpdateDto>(accountEntity);
 

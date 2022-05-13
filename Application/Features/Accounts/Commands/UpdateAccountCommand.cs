@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using AutoMapper;
 using Domain.Exceptions;
 using Infrastructure.Abstractions;
@@ -40,13 +41,11 @@ namespace Application.Features.Accounts.Commands
 
         public async Task<Unit> Handle(UpdateAccountCommand request, CancellationToken cancellationToken)
         {
-            // await _getOwner.GetAccountOwnerAndCheckIfExists(_repositoryManager,request.OwnerId, trackChanges: false);
-            
-            var ownerAccount =
-                await _repositoryManager.Account.GetAccountById(request.OwnerId, request.AccountId, request.AccountTrackChanges);
-            if (ownerAccount is null)
-                throw new AccountNotFoundException(request.AccountId);
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
 
+            var ownerAccount = await GetAccountOwner.GetAccountAndCheckIfExists(_repositoryManager, request.OwnerId,
+                request.AccountId, request.AccountTrackChanges);
+               
             _mapper.Map(request.AccountUpdateDto, ownerAccount);
             await _repositoryManager.SaveAsync();
             

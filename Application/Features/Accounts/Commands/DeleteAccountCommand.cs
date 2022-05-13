@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using Domain.Exceptions;
 using Infrastructure.Abstractions;
 using MediatR;
@@ -33,13 +34,12 @@ namespace Application.Features.Accounts.Commands
 
         public async Task<Unit> Handle(DeleteAccountCommand request, CancellationToken cancellationToken)
         {
-            // await _getOwner.GetAccountOwnerAndCheckIfExists(_repository,request.OwnerId, trackChanges: false);
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repository,request.OwnerId, trackChanges: false);
 
             var ownerAccount =
-                await _repository.Account.GetAccountById(request.OwnerId, request.AccountId, request.TrackChanges);
-            if (ownerAccount is null)
-                throw new AccountNotFoundException(request.AccountId);
-            
+                await GetAccountOwner.GetAccountAndCheckIfExists(_repository,request.OwnerId, request.AccountId,
+                    request.TrackChanges);
+               
             _repository.Account.DeleteAccount(ownerAccount);
             await _repository.SaveAsync();
             

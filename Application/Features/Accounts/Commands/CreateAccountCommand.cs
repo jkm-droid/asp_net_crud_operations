@@ -36,7 +36,7 @@ namespace Application.Features.Accounts.Commands
 
         public async Task<AccountDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
-            await GetAccountOwner.GetAccountOwnerAndCheckIfExists(_repository,request.OwnerId, trackChanges: false);
+            await GetAccountOwner.CheckIfAccountOwnerExists(_repository,request.OwnerId, trackChanges: false);
 
             var accountEntity = _mapper.Map<Account>(request.AccountCreationDto);
             _repository.Account.CreateAccount(request.OwnerId,accountEntity);
