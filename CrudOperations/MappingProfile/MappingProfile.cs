@@ -21,6 +21,8 @@ namespace CrudOperations.MappingProfile
             CreateMap<AccountUpdateDto, Account>();
 
             CreateMap<OwnerUpdateDto, Owner>();
+            
+            CreateMap<AccountUpdateDto, Account>().ReverseMap();
         }
     }
 }

@@ -8,6 +8,7 @@ using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NLog.Fluent;
+using Presentation.ActionFilters;
 using Shared.DataTransferObjects;
 
 namespace Presentation.Controllers
@@ -41,6 +42,7 @@ namespace Presentation.Controllers
         }
         
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateOwnerAsync([FromBody] OwnerCreationDto ownerCreationDto)
         {
             var owner = await _mediator.Send(new CreateOwnerCommand(ownerCreationDto));
@@ -57,24 +59,18 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("collection")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateOwnerCollection([FromBody] IEnumerable<OwnerCreationDto> ownerCollection)
         {
-            if (ownerCollection is null)
-                throw new OwnerCollectionBadRequest();
-            
             var response = await _mediator.Send(new CreateOwnerCollectionCommand(ownerCollection));
 
             return CreatedAtRoute("GetOwnerCollection", new {response.ownerIds}, response.owners);
         }
 
         [HttpPut("{ownerId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateOwner([FromBody] OwnerUpdateDto ownerUpdateDto, Guid ownerId)
         {
-            if (ownerUpdateDto is null)
-            {
-                return BadRequest("OwnerUpdateDto is null");
-            }
-
             await _mediator.Send(new UpdateOwnerCommand(ownerId, ownerUpdateDto, trackChanges: true));
 
             return NoContent();

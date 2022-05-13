@@ -40,10 +40,8 @@ namespace Application.Features.Accounts.Commands
 
         public async Task<Unit> Handle(UpdateAccountCommand request, CancellationToken cancellationToken)
         {
-            var owner = await _repositoryManager.Owner.GetOwnerById(request.OwnerId, request.OwnerTrackChanges);
-            if (owner is null)
-                throw new OwnerNotFoundException(request.OwnerId);
-
+            // await _getOwner.GetAccountOwnerAndCheckIfExists(_repositoryManager,request.OwnerId, trackChanges: false);
+            
             var ownerAccount =
                 await _repositoryManager.Account.GetAccountById(request.OwnerId, request.AccountId, request.AccountTrackChanges);
             if (ownerAccount is null)

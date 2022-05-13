@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Z/9jlWOJfaQzufT9qA79lNbkg+gvSSGo233QKQXL+4dPs+29HnMG+PBdre8wWUIz7FxuF72UXwpyDDLvu5JA1g==",
+  "dgSpecHash": "nStYJosLPPead/VyPXONkQxGGAzlXFZAaiTQa+zSgF5ysCp8Wq6lxG8qd+/zf6GlYBH7rGoLq5upI1Px7ZxuGg==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\CrudOperations\\CrudOperations.csproj",
   "expectedPackageFiles": [

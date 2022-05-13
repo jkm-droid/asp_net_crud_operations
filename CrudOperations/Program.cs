@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Presentation.ActionFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +23,16 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureSqlService(builder.Configuration);
 builder.Services.AddMediatR(typeof(Application.Assembly.AssemblyReference).Assembly);
 builder.Services.AddAutoMapper(typeof(Program));
+// register action filter as a service
+builder.Services.AddScoped<ValidationFilterAttribute>();
+// disable automatic validation
+builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 builder.Services.AddControllers(config =>
 {
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
 }).AddApplicationPart(typeof(Presentation.Assembly.AssemblyReference).Assembly);
+builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 
 var app = builder.Build();
 var logger = app.Services.GetRequiredService<ILoggerManager>();

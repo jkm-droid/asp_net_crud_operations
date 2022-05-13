@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Domain.Exceptions;
 using Infrastructure.Abstractions;
-using LoggerService.Abstractions;
 using MediatR;
 
 namespace Application.Features.Accounts.Commands
@@ -28,16 +26,14 @@ namespace Application.Features.Accounts.Commands
     {
         private readonly IRepositoryManager _repository;
 
-        public DeleteAccountCommandHandler(IRepositoryManager repository, ILoggerManager loggerManager, IMapper mapper)
+        public DeleteAccountCommandHandler(IRepositoryManager repository)
         {
             _repository = repository;
         }
 
         public async Task<Unit> Handle(DeleteAccountCommand request, CancellationToken cancellationToken)
         {
-            var owner = await _repository.Owner.GetOwnerById(request.OwnerId, trackChanges: false);
-            if (owner is null)
-                throw new OwnerNotFoundException(request.OwnerId);
+            // await _getOwner.GetAccountOwnerAndCheckIfExists(_repository,request.OwnerId, trackChanges: false);
 
             var ownerAccount =
                 await _repository.Account.GetAccountById(request.OwnerId, request.AccountId, request.TrackChanges);

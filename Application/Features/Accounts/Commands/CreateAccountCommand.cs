@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Features.Shared;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Abstractions;
-using LoggerService.Abstractions;
 using MediatR;
 using Shared.DataTransferObjects;
 
@@ -26,22 +26,17 @@ namespace Application.Features.Accounts.Commands
     internal sealed class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, AccountDto>
     {
         private readonly IRepositoryManager _repository;
-        private readonly ILoggerManager _loggerManager;
         private readonly IMapper _mapper;
 
-        public CreateAccountCommandHandler(IRepositoryManager repository, ILoggerManager loggerManager, IMapper mapper)
+        public CreateAccountCommandHandler(IRepositoryManager repository, IMapper mapper)
         {
             _repository = repository;
-            _loggerManager = loggerManager;
             _mapper = mapper;
         }
 
         public async Task<AccountDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
-            //find the owner
-            var owner = await _repository.Owner.GetOwnerById(request.OwnerId,trackChanges: false);
-            if (owner is null)
-                _loggerManager.LogError($"owner with id {request.OwnerId} does not exist");
+            await GetAccountOwner.GetAccountOwnerAndCheckIfExists(_repository,request.OwnerId, trackChanges: false);
 
             var accountEntity = _mapper.Map<Account>(request.AccountCreationDto);
             _repository.Account.CreateAccount(request.OwnerId,accountEntity);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EZQN+UC8ZnMYiPJG37ScDvUrTcv6RpuhWtwu2957UpyGe3fiKiECW0qE2Hd2PlTHFmsO1tzlHadnMZkT6fWFyQ==",
+  "dgSpecHash": "W5/z/f4dHk/fcVNpGNFe8A96dt3/ypOWCXcfJ0u1CyNCLiml7PT6dX7mek5jhwArCw1/BZDUNM2i0VQVVeM8Tg==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\LoggerService\\LoggerService.csproj",
   "expectedPackageFiles": [

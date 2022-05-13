@@ -9,7 +9,7 @@ namespace Shared.DataTransferObjects
         string Email, 
         string Address,
         string Country,
-        IEnumerable<AccountCreationDto> Accounts//will enable creating an account while updating owner
+        IEnumerable<AccountCreationDto>? Accounts//will enable creating an account while updating owner
     );
 
 }

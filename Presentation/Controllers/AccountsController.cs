@@ -6,7 +6,9 @@ using Application.Features.Accounts.Queries;
 using Application.Features.Owners.Commands;
 using LoggerService.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.ActionFilters;
 using Shared.DataTransferObjects;
 
 namespace Presentation.Controllers
@@ -39,7 +41,7 @@ namespace Presentation.Controllers
             return Ok(ownerAccounts);
         }
 
-        [HttpGet("{accountId:guid}", Name = "GetOwnerAccountAsync")]
+        [HttpGet("{accountId:guid}", Name = "GetOwnerAccount")]
         public async Task<IActionResult> GetOwnerAccountAsync(Guid ownerId, Guid accountId)
         {
             var account = await _mediator.Send(new GetOwnerAccountByIdQuery(ownerId, accountId, trackChanges: false));
@@ -48,11 +50,12 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateAccountAsync(Guid ownerId, [FromBody] AccountCreationDto accountCreationDto)
         {
             var account = await _mediator.Send(new CreateAccountCommand(ownerId, accountCreationDto));
 
-            return CreatedAtAction("GetOwnerAccount", new {accountId = account.Id}, account);
+            return CreatedAtAction("GetOwnerAccount", new {ownerId, accountId = account.Id}, account);
         }
         
         [HttpDelete("{accountId:guid}")]
@@ -64,14 +67,33 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{accountId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateAccount([FromBody] AccountUpdateDto account, Guid ownerId, Guid accountId)
         {
-            _loggerManager.LogWarn($"{account}");
-            if (account is null)
-                return BadRequest("Account is null");
-            
             await _mediator.Send(new UpdateAccountCommand(account, ownerId, accountId, ownerTrackChanges: false,
                 accountTrackChanges: true));
+
+            return NoContent();
+        }
+
+        [HttpPatch("{accountId:guid}")]
+        public async Task<IActionResult> PartiallyUpdateAccount(Guid ownerId, Guid accountId,
+            [FromBody] JsonPatchDocument<AccountUpdateDto> patchDocument)
+        {
+            if (patchDocument is null)
+                return BadRequest("Account patch object is null");
+            
+            var response = await _mediator.Send(new GetAccountForPatchQuery(ownerId, accountId, ownerTrackChanges: false,
+                accountTrackChanges: true));
+            
+            patchDocument.ApplyTo(response.accountPatch, ModelState);
+
+            TryValidateModel(response.accountPatch);
+
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            await _mediator.Send(new PartialUpdateAccountCommand(response.accountPatch, response.account));
 
             return NoContent();
         }
