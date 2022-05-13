@@ -13,3 +13,5 @@ C:\Net Core\Test Projects\CrudOperations\Infrastructure\obj\Debug\net6.0\Infrast
 C:\Net Core\Test Projects\CrudOperations\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
 C:\Net Core\Test Projects\CrudOperations\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
 C:\Net Core\Test Projects\CrudOperations\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+C:\Net Core\Test Projects\CrudOperations\Infrastructure\bin\Debug\net6.0\Shared.dll
+C:\Net Core\Test Projects\CrudOperations\Infrastructure\bin\Debug\net6.0\Shared.pdb

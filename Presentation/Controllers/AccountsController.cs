@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Application.Abstractions;
 using Application.Features.Accounts.Commands;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Shared.DataTransferObjects;
+using Shared.RequestFeatures;
 
 namespace Presentation.Controllers
 {
@@ -34,11 +36,13 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetOwnerAccountsAsync(Guid ownerId)
+        public async Task<IActionResult> GetOwnerAccountsAsync(Guid ownerId, [FromQuery] AccountParameters accountParameters)
         {
-            var ownerAccounts = await _mediator.Send(new GetOwnerAccountsQuery(ownerId, trackChanges: false));
-
-            return Ok(ownerAccounts);
+            var pagedResult = await _mediator.Send(new GetOwnerAccountsQuery(ownerId, accountParameters, trackChanges: false));
+            
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.pagingMetaData));
+            
+            return Ok(pagedResult.accounts);
         }
 
         [HttpGet("{accountId:guid}", Name = "GetOwnerAccount")]

@@ -11,7 +11,8 @@
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.0-preview.3.22175.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.4",
-          "Microsoft.Extensions.Configuration": "7.0.0-preview.3.22175.4"
+          "Microsoft.Extensions.Configuration": "7.0.0-preview.3.22175.4",
+          "Shared": "1.0.0"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -482,6 +483,11 @@
         "runtime": {
           "Domain.dll": {}
         }
+      },
+      "Shared/1.0.0": {
+        "runtime": {
+          "Shared.dll": {}
+        }
       }
     }
   },
@@ -779,6 +785,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

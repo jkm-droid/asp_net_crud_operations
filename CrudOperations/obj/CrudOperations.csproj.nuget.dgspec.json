@@ -262,6 +262,9 @@
             "projectReferences": {
               "C:\\Net Core\\Test Projects\\CrudOperations\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\Domain\\Domain.csproj"
+              },
+              "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj"
               }
             }
           }

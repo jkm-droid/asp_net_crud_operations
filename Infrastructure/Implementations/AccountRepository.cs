@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Domain.Entities;
 using Infrastructure.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Shared.RequestFeatures;
 
 namespace Infrastructure.Implementations
 {
@@ -19,9 +20,11 @@ namespace Infrastructure.Implementations
             return await FindAll(trackChanges).OrderBy(a => a.Name).ToListAsync();
         }
 
-        public async Task<IEnumerable<Account>> GetOwnerAccounts(Guid ownerId, bool trackChanges)
+        public async Task<PagedList<Account>> GetOwnerAccounts(Guid ownerId, AccountParameters accountParameters, bool trackChanges)
         {
-            return await FindByCondition(a => a.OwnerId.Equals(ownerId), trackChanges).OrderBy(a => a.Name).ToListAsync();
+            var accounts = await FindByCondition(a => a.OwnerId.Equals(ownerId), trackChanges).OrderBy(a => a.Name).ToListAsync();
+
+            return PagedList<Account>.ToPagedList(accounts, accountParameters.PageNumber, accountParameters.PageSize);
         }
 
         public async Task<Account> GetAccountById(Guid ownerId, Guid accountId, bool trackChanges)

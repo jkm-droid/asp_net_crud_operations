@@ -9,22 +9,26 @@ using Domain.Exceptions;
 using Infrastructure.Abstractions;
 using MediatR;
 using Shared.DataTransferObjects;
+using Shared.RequestFeatures;
 
 namespace Application.Features.Accounts.Queries
 {
-    public class GetOwnerAccountsQuery : IRequest<IEnumerable<AccountDto>>
+    public class GetOwnerAccountsQuery : IRequest<(IEnumerable<AccountDto> accounts, PagingMetaData pagingMetaData)>
     {
         public Guid OwnerId { get; set; }
         public bool TrackChanges { get; set; }
+        
+        public AccountParameters AccountParameters { get; set; }
 
-        public GetOwnerAccountsQuery(Guid ownerd, bool trackChanges)
+        public GetOwnerAccountsQuery(Guid ownerd,AccountParameters accountParameters, bool trackChanges)
         {
             OwnerId = ownerd;
             TrackChanges = trackChanges;
+            AccountParameters = accountParameters;
         }
     }
 
-    internal sealed class GetOwnerAccountsQueryHandler : IRequestHandler<GetOwnerAccountsQuery, IEnumerable<AccountDto>>
+    internal sealed class GetOwnerAccountsQueryHandler : IRequestHandler<GetOwnerAccountsQuery, (IEnumerable<AccountDto> accounts, PagingMetaData pagingMetaData)>
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
@@ -35,16 +39,16 @@ namespace Application.Features.Accounts.Queries
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<AccountDto>> Handle(GetOwnerAccountsQuery request, CancellationToken cancellationToken)
+        public async Task<(IEnumerable<AccountDto> accounts, PagingMetaData pagingMetaData)> Handle(GetOwnerAccountsQuery request, CancellationToken cancellationToken)
         {
             //check if owner exists
             await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
             
-            var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.OwnerId, request.TrackChanges);
+            var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.OwnerId, request.AccountParameters, request.TrackChanges);
 
             var ownerAccountsDto = _mapper.Map<IEnumerable<AccountDto>>(ownerAccounts);
 
-            return ownerAccountsDto;
+            return (accounts: ownerAccountsDto, pagingMetaData: ownerAccounts.PagingMetaData);
         }
     }
 }
