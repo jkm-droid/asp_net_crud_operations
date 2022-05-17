@@ -7,5 +7,6 @@ namespace Shared.RequestFeatures
         public DateTime PeriodFrom { get; set; }
         public DateTime PeriodTo { get; set; } = DateTime.Now;
         public bool ValidDateRange => PeriodTo > PeriodFrom;
+        public string? SearchTerm { get; set; }
     }
 }

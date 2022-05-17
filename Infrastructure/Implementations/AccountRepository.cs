@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Infrastructure.Abstractions;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Shared.RequestFeatures;
 
@@ -23,10 +24,9 @@ namespace Infrastructure.Implementations
 
         public async Task<PagedList<Account>> GetOwnerAccounts(Guid ownerId, AccountParameters accountParameters, bool trackChanges)
         {
-            var accounts = await FindByCondition(
-                    a => a.OwnerId.Equals(ownerId) 
-                         && a.CreatedAt.Date >= accountParameters.PeriodFrom 
-                         && a.CreatedAt.Date <= accountParameters.PeriodTo, trackChanges)
+            var accounts = await FindByCondition(a => a.OwnerId.Equals(ownerId) , trackChanges)
+                .FilterAccounts(accountParameters.PeriodFrom, accountParameters.PeriodTo)
+                .Search(accountParameters.SearchTerm)
                 .Skip((accountParameters.PageNumber - 1) * accountParameters.PageSize)
                 .Take(accountParameters.PageSize)
                 .OrderBy(a => a.Name).ToListAsync();
