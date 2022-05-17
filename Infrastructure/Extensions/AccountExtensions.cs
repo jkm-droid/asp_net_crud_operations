@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using Domain.Entities;
-using Shared.DataTransferObjects;
+using Infrastructure.Extensions.Utility;
 
 namespace Infrastructure.Extensions
 {
@@ -22,6 +23,19 @@ namespace Infrastructure.Extensions
 
             return accounts.Where(a =>
                 a.Name.ToLower().Contains(lowerCaseSearchTerm) || a.AccountType.ToLower().Contains(lowerCaseSearchTerm));
+        }
+
+        public static IQueryable<Account> Sort(this IQueryable<Account> accounts, string orderByQueryTerm)
+        {
+            if (string.IsNullOrWhiteSpace(orderByQueryTerm))
+                return accounts.OrderBy(a => a.Name);
+
+            var orderQuery = OrderByQueryBuilder.CreateOrderQuery<Account>(orderByQueryTerm);
+            
+            if (string.IsNullOrWhiteSpace(orderQuery))
+                return accounts.OrderBy(a => a.Name);
+
+            return accounts.OrderBy(orderQuery);
         }
     }
 }

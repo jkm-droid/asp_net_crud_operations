@@ -27,6 +27,7 @@ namespace Infrastructure.Implementations
             var accounts = await FindByCondition(a => a.OwnerId.Equals(ownerId) , trackChanges)
                 .FilterAccounts(accountParameters.PeriodFrom, accountParameters.PeriodTo)
                 .Search(accountParameters.SearchTerm)
+                .Sort(accountParameters.OrderBy)
                 .Skip((accountParameters.PageNumber - 1) * accountParameters.PageSize)
                 .Take(accountParameters.PageSize)
                 .OrderBy(a => a.Name).ToListAsync();

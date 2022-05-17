@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E+y7YCxFyMhHh1FlCc4jSRG7Xvc+dZUhETeohPDsJR0yhlPSvBYrqF2TYHJIHLywr9hshSzF6x30VUlf6zwKeg==",
+  "dgSpecHash": "xj35VRWCuvmeEL6afAXrNOaPhJCqdZsJ0TRLqSMEyVxvzHKXKRaI4Vh/ErYqk8u9jnpnqPphCFy9+AGraOQWiA==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.0-preview.3.22175.4\\system.diagnostics.diagnosticsource.7.0.0-preview.3.22175.4.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.8.0\\system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\system.linq.dynamic.core\\1.2.18\\system.linq.dynamic.core.1.2.18.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\jkmdroid\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
