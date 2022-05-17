@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Application.Abstractions;
 using Application.Features.Accounts.Commands;
 using Application.Features.Accounts.Queries;
-using Application.Features.Owners.Commands;
 using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;

@@ -1,6 +1,4 @@
 ﻿using System;
-using Application.Abstractions;
-using Application.Implementations;
 using Infrastructure;
 using Infrastructure.Abstractions;
 using Infrastructure.Implementations;
@@ -73,10 +71,6 @@ namespace CrudOperations.Extensions
         {
             serviceCollection.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
-        
-        public static void ConfigureServiceManager(this IServiceCollection services)
-        {
-            services.AddScoped<IServiceManager, ServiceManager>();
-        }
+  
     }
 }

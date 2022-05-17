@@ -20,9 +20,9 @@ namespace Application.Features.Accounts.Queries
         
         public AccountParameters AccountParameters { get; set; }
 
-        public GetOwnerAccountsQuery(Guid ownerd,AccountParameters accountParameters, bool trackChanges)
+        public GetOwnerAccountsQuery(Guid ownerId,AccountParameters accountParameters, bool trackChanges)
         {
-            OwnerId = ownerd;
+            OwnerId = ownerId;
             TrackChanges = trackChanges;
             AccountParameters = accountParameters;
         }
@@ -41,7 +41,9 @@ namespace Application.Features.Accounts.Queries
 
         public async Task<(IEnumerable<AccountDto> accounts, PagingMetaData pagingMetaData)> Handle(GetOwnerAccountsQuery request, CancellationToken cancellationToken)
         {
-            //check if owner exists
+            if (!request.AccountParameters.ValidDateRange)
+                throw new ValidDateRangeBadRequestException();
+                //check if owner exists
             await GetAccountOwner.CheckIfAccountOwnerExists(_repositoryManager,request.OwnerId, trackChanges: false);
             
             var ownerAccounts = await _repositoryManager.Account.GetOwnerAccounts(request.OwnerId, request.AccountParameters, request.TrackChanges);

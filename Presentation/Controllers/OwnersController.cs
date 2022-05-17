@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Application.Features.Owners.Commands;
 using Application.Features.Owners.Queries;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using NLog.Fluent;
 using Presentation.ActionFilters;
 using Shared.DataTransferObjects;
+using Shared.RequestFeatures;
 
 namespace Presentation.Controllers
 {
@@ -26,11 +28,13 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetOwnersAsync()
+        public async Task<IActionResult> GetOwnersAsync([FromQuery] OwnerParameters ownerParameters)
         {
-            var owners = await _mediator.Send(new GetAllOwnersQuery(trackChanges: false));
+            var pagedOwners = await _mediator.Send(new GetAllOwnersQuery(ownerParameters, trackChanges: false));
+            
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedOwners.pagingMetaData));
 
-            return Ok(owners);
+            return Ok(pagedOwners.owners);
         }
 
         [HttpGet("{id:guid}", Name = "GetOwnerById")]

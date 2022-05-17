@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Domain.Entities;
 using Infrastructure.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Shared.RequestFeatures;
 
 namespace Infrastructure.Implementations
 {
@@ -13,9 +14,16 @@ namespace Infrastructure.Implementations
         public OwnerRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         { }
         
-        public async Task<IEnumerable<Owner>> GetAllOwners(bool trackChanges)
+        public async Task<PagedList<Owner>> GetAllOwners(OwnerParameters ownerParameters,bool trackChanges)
         {
-            return await FindAll(trackChanges).OrderBy(o => o.Name).ToListAsync();
+            var owners =  await FindAll( trackChanges)
+                .OrderBy(o => o.Name)
+                .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
+                .Take(ownerParameters.PageSize)
+                .ToListAsync();
+            var count = await FindAll(trackChanges).CountAsync();
+
+            return new PagedList<Owner>(owners, count, ownerParameters.PageNumber, ownerParameters.PageSize);
         }
 
         public async Task<Owner> GetOwnerById(Guid ownerId, bool trackChanges)

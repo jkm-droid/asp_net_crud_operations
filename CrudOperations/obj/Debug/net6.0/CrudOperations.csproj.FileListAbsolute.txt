@@ -14,6 +14,7 @@ C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\MediatR
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
@@ -105,4 +106,3 @@ C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOpe
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\ref\CrudOperations.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOperations.pdb
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOperations.genruntimeconfig.cache
-C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

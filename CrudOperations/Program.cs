@@ -19,7 +19,6 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
-//builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlService(builder.Configuration);
 builder.Services.AddMediatR(typeof(Application.Assembly.AssemblyReference).Assembly);
 builder.Services.AddAutoMapper(typeof(Program));
