@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Infrastructure.Abstractions;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Shared.RequestFeatures;
 
@@ -18,6 +19,8 @@ namespace Infrastructure.Implementations
         {
             var owners =  await FindAll( trackChanges)
                 .OrderBy(o => o.Name)
+                .Search(ownerParameters.SearchTerm)
+                .Sort(ownerParameters.OrderBy)
                 .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
                 .Take(ownerParameters.PageSize)
                 .ToListAsync();
