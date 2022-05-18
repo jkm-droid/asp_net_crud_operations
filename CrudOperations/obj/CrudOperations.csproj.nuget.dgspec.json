@@ -33,9 +33,6 @@
               },
               "C:\\Net Core\\Test Projects\\CrudOperations\\LoggerService\\LoggerService.csproj": {
                 "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\LoggerService\\LoggerService.csproj"
-              },
-              "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj"
               }
             }
           }
@@ -57,6 +54,14 @@
             "MediatR": {
               "target": "Package",
               "version": "[10.0.1, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Routing.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [
@@ -205,7 +210,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -486,6 +495,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

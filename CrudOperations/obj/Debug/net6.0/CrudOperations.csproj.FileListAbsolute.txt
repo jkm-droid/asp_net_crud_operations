@@ -63,6 +63,7 @@ C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Security.Permissions.dll
@@ -106,4 +107,3 @@ C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOpe
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\ref\CrudOperations.dll
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOperations.pdb
 C:\Net Core\Test Projects\CrudOperations\CrudOperations\obj\Debug\net6.0\CrudOperations.genruntimeconfig.cache
-C:\Net Core\Test Projects\CrudOperations\CrudOperations\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

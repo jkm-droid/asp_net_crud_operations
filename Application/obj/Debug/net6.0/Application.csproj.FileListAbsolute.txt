@@ -8,8 +8,8 @@ C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\LoggerServ
 C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\Shared.dll
 C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\Infrastructure.pdb
 C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\LoggerService.pdb
-C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\Shared.pdb
 C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\Domain.pdb
+C:\Net Core\Test Projects\CrudOperations\Application\bin\Debug\net6.0\Shared.pdb
 C:\Net Core\Test Projects\CrudOperations\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
 C:\Net Core\Test Projects\CrudOperations\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Net Core\Test Projects\CrudOperations\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache

@@ -3,10 +3,10 @@
 namespace Shared.DataTransferObjects
 {
     public record AccountDto
-    (
-        Guid Id, 
-        string Name, 
-        string AccountType, 
-        DateTime CreatedAt
-    );
+    {
+        public Guid Id { get; init; }
+        public string? Name { get; init; }
+        public string? AccountType { get; init; }
+        public DateTime CreatedAt { get; init; }
+    }
 }

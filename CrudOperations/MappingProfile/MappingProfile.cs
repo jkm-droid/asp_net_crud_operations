@@ -12,7 +12,7 @@ namespace CrudOperations.MappingProfile
                 .ForMember(o => o.FullAddress, options => options.MapFrom(fa => string.Join(' ', fa.Address, fa.Country)));
 
             CreateMap<Account, AccountDto>()
-                .ForCtorParam("CreatedAt", options => options.MapFrom(d => d.CreatedAt.ToString("MM/dd/yyyy")));
+                .ForMember(a => a.CreatedAt, options => options.MapFrom(d => d.CreatedAt.ToString("MM/dd/yyyy")));
 
             CreateMap<OwnerCreationDto, Owner>();
 

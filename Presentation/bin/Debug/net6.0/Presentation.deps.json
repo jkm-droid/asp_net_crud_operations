@@ -2066,13 +2066,17 @@
           "Infrastructure": "1.0.0",
           "LoggerService": "1.0.0",
           "MediatR": "10.0.1",
-          "Shared": "1.0.0"
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.2.0"
         },
         "runtime": {
           "Application.dll": {}
         }
       },
       "Domain/1.0.0": {
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
         "runtime": {
           "Domain.dll": {}
         }
@@ -2100,6 +2104,9 @@
         }
       },
       "Shared/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
+        },
         "runtime": {
           "Shared.dll": {}
         }

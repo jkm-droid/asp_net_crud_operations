@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "iBG21I40WrI7dNJjaDWD40y6o0nIYyDUy2xo2Xe+/r/UVaZ+txWpBwXfyegdhGUTOhHg0S9WQ9+4bZUiwLUqlw==",
+  "dgSpecHash": "z2Wa93JCuhO3gM+VfOdQfbA3leJOyzMG493vrdiK7dX1UfkoSyi6CB+IZBqIBn27Lj8xGkBJ+OLf/bupRxJyOw==",
   "success": true,
   "projectFilePath": "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\jkmdroid\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

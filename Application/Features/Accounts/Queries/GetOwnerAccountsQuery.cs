@@ -6,6 +6,7 @@ using Application.Features.Shared;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Exceptions;
+using Domain.LinkModels;
 using Infrastructure.Abstractions;
 using MediatR;
 using Shared.DataTransferObjects;
@@ -17,7 +18,6 @@ namespace Application.Features.Accounts.Queries
     {
         public Guid OwnerId { get; set; }
         public bool TrackChanges { get; set; }
-        
         public AccountParameters AccountParameters { get; set; }
 
         public GetOwnerAccountsQuery(Guid ownerId,AccountParameters accountParameters, bool trackChanges)

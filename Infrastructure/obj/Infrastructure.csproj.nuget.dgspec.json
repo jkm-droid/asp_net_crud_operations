@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Net Core\\Test Projects\\CrudOperations\\Shared\\Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -172,6 +176,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
