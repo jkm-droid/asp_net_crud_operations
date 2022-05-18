@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Linq;
 using Infrastructure;
 using Infrastructure.Abstractions;
 using Infrastructure.Implementations;
 using LoggerService.Abstractions;
 using LoggerService.Implementations;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -71,6 +74,25 @@ namespace CrudOperations.Extensions
         {
             serviceCollection.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
-  
+
+        public static void AddCustomMediaTypes(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.Configure<MvcOptions>(config =>
+            {
+                var systemTextJsonOutputFormatter =
+                    config.OutputFormatters.OfType<SystemTextJsonOutputFormatter>()?.FirstOrDefault();
+                if (systemTextJsonOutputFormatter != null)
+                {
+                    systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.jkmdroid.hateoas+json");
+                }
+
+                var xmlOutputFormatter = config.OutputFormatters.OfType<XmlDataContractSerializerOutputFormatter>()
+                    ?.FirstOrDefault();
+                if (xmlOutputFormatter != null)
+                {
+                    xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.jkmdroid.hateoas+json");
+                }
+            });
+        }
     }
 }

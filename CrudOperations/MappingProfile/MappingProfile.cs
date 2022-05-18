@@ -8,8 +8,8 @@ namespace CrudOperations.MappingProfile
     {
         public MappingProfile()
         {
-            CreateMap<Owner, OwnerDto>().ForCtorParam("FullName", options => options.MapFrom(newName => string.Join(' ',"Dr.",newName.Name)))
-                .ForCtorParam("FullAddress", options => options.MapFrom(fa => string.Join(' ', fa.Address, fa.Country)));
+            CreateMap<Owner, OwnerDto>()//.ForCtorParam("FullName", options => options.MapFrom(newName => string.Join(' ',"Dr.",newName.Name)))
+                .ForMember(o => o.FullAddress, options => options.MapFrom(fa => string.Join(' ', fa.Address, fa.Country)));
 
             CreateMap<Account, AccountDto>()
                 .ForCtorParam("CreatedAt", options => options.MapFrom(d => d.CreatedAt.ToString("MM/dd/yyyy")));

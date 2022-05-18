@@ -24,13 +24,17 @@ builder.Services.AddMediatR(typeof(Application.Assembly.AssemblyReference).Assem
 builder.Services.AddAutoMapper(typeof(Program));
 // register action filter as a service
 builder.Services.AddScoped<ValidationFilterAttribute>();
+builder.Services.AddScoped<ValidateMediaTypeAttribute>();
 // disable automatic validation
 builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 builder.Services.AddControllers(config =>
-{
-    config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
-}).AddApplicationPart(typeof(Presentation.Assembly.AssemblyReference).Assembly);
+    {
+        config.RespectBrowserAcceptHeader = true;
+        config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
+    }).AddXmlDataContractSerializerFormatters()
+    .AddApplicationPart(typeof(Presentation.Assembly.AssemblyReference).Assembly);
+builder.Services.AddCustomMediaTypes();
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 
 var app = builder.Build();
@@ -57,6 +61,6 @@ app.Run();
 
 NewtonsoftJsonInputFormatter GetJsonPatchInputFormatter() => 
     new ServiceCollection().AddLogging().AddMvc().AddNewtonsoftJson()
-    .Services.BuildServiceProvider()
-    .GetRequiredService<IOptions<MvcOptions>>().Value.InputFormatters
-    .OfType<NewtonsoftJsonInputFormatter>().First();
+        .Services.BuildServiceProvider()
+        .GetRequiredService<IOptions<MvcOptions>>().Value.InputFormatters
+        .OfType<NewtonsoftJsonInputFormatter>().First();

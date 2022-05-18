@@ -34,6 +34,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetOwnerAccountsAsync(Guid ownerId, [FromQuery] AccountParameters accountParameters)
         {
             var pagedResult = await _mediator.Send(new GetOwnerAccountsQuery(ownerId, accountParameters, trackChanges: false));
